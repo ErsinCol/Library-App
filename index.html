@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Library Application</title>
+  </head>
+  <body>
+    <div id="root">
+      <header>
+        <h1>Library App</h1>
+        <button id="openModalBtn">New Book</button>
+      </header>
+
+      <main>
+        <div style="overflow-x: auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publishing House</th>
+                <th>Number of Pages</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <dialog id="modal">
+          <div class="modal-header">
+            <h2>Add New Book</h2>
+            <button id="closeModalBtn">X</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div>
+                <label for="title">Title</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              <div>
+                <label for="author">Author</label>
+                <input
+                  type="text"
+                  id="author"
+                  name="author"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              <div>
+                <label for="publishingHouse">Publishing house</label>
+                <input
+                  type="text"
+                  id="publishingHouse"
+                  name="publishingHouse"
+                  required
+                  autocomplete="off"
+                />
+              </div>
+
+              <div>
+                <label for="numberOfPages">Number of pages</label>
+                <input
+                  type="number"
+                  name="numberOfPages"
+                  id="numberOfPages"
+                  required
+                />
+              </div>
+
+              <div>
+                <input type="checkbox" name="isRead" id="isRead" />
+                <label for="isRead">Is Read</label>
+              </div>
+
+              <div class="modal-footer">
+                <input type="reset" value="Clear" />
+                <input type="submit" value="Add" />
+              </div>
+            </form>
+          </div>
+        </dialog>
+      </main>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
