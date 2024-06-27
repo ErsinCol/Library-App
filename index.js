@@ -116,6 +116,17 @@ function displayBooks() {
   }
 }
 
+function showNotification(message) {
+  const notificationEl = document.createElement("div");
+  notificationEl.className = "notification";
+  notificationEl.innerText = message;
+  document.body.appendChild(notificationEl);
+
+  setTimeout(function () {
+    notificationEl.remove();
+  }, 3000);
+}
+
 const form = document.querySelector("form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -139,6 +150,8 @@ form.addEventListener("submit", function (event) {
   form.reset();
 
   modal.close();
+
+  showNotification("Book added successfully!");
 });
 
 displayBooks();
