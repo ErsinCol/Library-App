@@ -116,9 +116,9 @@ function displayBooks() {
   }
 }
 
-function showNotification(message) {
+function showNotification(message, type = "success") {
   const notificationEl = document.createElement("div");
-  notificationEl.className = "notification";
+  notificationEl.className = `notification ${type}`;
   notificationEl.innerText = message;
   document.body.appendChild(notificationEl);
 
@@ -131,11 +131,18 @@ const form = document.querySelector("form");
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const publishingHouse = document.getElementById("publishingHouse").value;
-  const numberOfPages = document.getElementById("numberOfPages").value;
+  const title = document.getElementById("title").value.trim();
+  const author = document.getElementById("author").value.trim();
+  const publishingHouse = document
+    .getElementById("publishingHouse")
+    .value.trim();
+  const numberOfPages = document.getElementById("numberOfPages").value.trim();
   const isRead = document.getElementById("isRead").checked;
+
+  if (!title || !author || !publishingHouse || !numberOfPages) {
+    showNotification("All fields are required!", "error");
+    return;
+  }
 
   const newBook = new Book(
     title,
