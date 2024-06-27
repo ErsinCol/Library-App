@@ -167,3 +167,10 @@ input[type="reset"] {
   border-color: #ef4444;
   color: #ef4444;
 }
+
+.empty-message {
+  text-align: center;
+  padding: 24px;
+  color: gray;
+  display: none;
+}

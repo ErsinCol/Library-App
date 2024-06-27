@@ -101,13 +101,19 @@ function createTableRow(book, index) {
 }
 
 const tbodyEl = document.querySelector("tbody");
+const emptyMessageEl = document.getElementById("emptyMessage");
 function displayBooks() {
   tbodyEl.innerHTML = "";
 
-  library.forEach((book, index) => {
-    const tableRow = createTableRow(book, index);
-    tbodyEl.appendChild(tableRow);
-  });
+  if (library.length === 0) {
+    emptyMessageEl.style.display = "block";
+  } else {
+    emptyMessageEl.style.display = "none";
+    library.forEach((book, index) => {
+      const tableRow = createTableRow(book, index);
+      tbodyEl.appendChild(tableRow);
+    });
+  }
 }
 
 const form = document.querySelector("form");
